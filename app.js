@@ -18,7 +18,7 @@ var Login = io
 	});
 
 
-var MyBook = io
+var Book = io
 	.of('/book')
 	.on('connection', function(socket){
 		console.log('/book connection');
