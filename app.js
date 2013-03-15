@@ -33,17 +33,12 @@ var nStart = 1;
 
 var http = require('http');
 http.createServer(function (req, res) {
-	/*if (req.method == 'OPTIONS') {
-		res.setHeader('Access-Control-Allow-Origin', '*');
-		res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE');
-		res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type');		
-	}
-	else {
-		res.setHeader('Access-Control-Allow-Origin', '*');		
-	}*/	
+
   res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin' : '*'});
   //res.end('Hello World\n');
   console.log('start');
+  console.log(req);
+  console.log(req.params);
  
   var url = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
   console.log(url);
