@@ -26,10 +26,18 @@ var Book = io
 	});
 
 */
+var naverkey = '';
 
 var http = require('http');
 http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.end('Hello World\n');
-}).listen(2016, 'mybookmanagerserver.iamdenny.com');
+  
+  http.get({
+  	'hostname' : 'http://openapi.naver.com/search'
+  }, function(data){
+  	res.end(data);
+  	console.log(res);
+  })
+}).listen(2046, 'mybookmanagerserver.iamdenny.com');
 console.log('Server running at http://mybookmanagerserver.iamdenny.com:2046');
