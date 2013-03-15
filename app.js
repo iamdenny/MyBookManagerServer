@@ -47,7 +47,7 @@ http.createServer(function (req, res) {
   var ajaxurl = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
   //ajaxurl = queryObject.url;
   console.log(ajaxurl);
-  console.log(queryObject.url);
+  console.log(queryObject);
   http.get( ajaxurl, function(innerRes){
   	var chunkdata = '';
   	innerRes.on('data', function(chunk){
