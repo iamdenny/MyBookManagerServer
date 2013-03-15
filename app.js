@@ -45,12 +45,12 @@ http.createServer(function (req, res) {
   //nStart = queryObject.start;
  
   var ajaxurl = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
-  ajaxurl = queryObject.url;
+  //ajaxurl = queryObject.url;
   console.log(ajaxurl);
   http.get( ajaxurl, function(innerRes){
   	var chunkdata = '';
   	innerRes.on('data', function(chunk){
-  		console.log(chunk.length);
+  		console.log('chunk', chunk.length);
 	  	chunkdata += chunk;
 	}).on('end', function(){
 		var sResult = queryObject._callback + "('" + chunkdata + "')";
