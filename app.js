@@ -34,11 +34,11 @@ http.createServer(function (req, res) {
   //res.end('Hello World\n');
   console.log('start');
   
-  http.get({
-  	'hostname' : 'http://openapi.naver.com/search'
-  }, function(data){
+  http.get( 'http://openapi.naver.com/search', function(data){
   	res.end(data);
   	console.log(res);
-  })
+  }).on('error', function(e){
+  	console.log('error : ' + e.message);
+  });
 }).listen(2046, 'mybookmanagerserver.iamdenny.com');
 console.log('Server running at http://mybookmanagerserver.iamdenny.com:2046');
