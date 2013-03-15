@@ -27,6 +27,9 @@ var Book = io
 
 */
 var naverkey = '';
+var sQuery = 'node';
+var nDisplay = 20;
+var nStart = 1;
 
 var http = require('http');
 http.createServer(function (req, res) {
@@ -34,7 +37,7 @@ http.createServer(function (req, res) {
   //res.end('Hello World\n');
   console.log('start');
   
-  http.get( 'http://openapi.naver.com/search', function(data){
+  http.get( 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book', function(data){
   	res.end('end');
   	console.log(res);
   }).on('error', function(e){
