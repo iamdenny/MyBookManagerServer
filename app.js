@@ -40,11 +40,12 @@ http.createServer(function (req, res) {
   //console.log('start');
   var queryObject = url.parse(req.url,true).query;
   //console.log(queryObject);
-  sQuery = queryObject.query;
-  nDisplay = queryObject.display;
-  nStart = queryObject.start;
+  //sQuery = queryObject.query;
+  //nDisplay = queryObject.display;
+  //nStart = queryObject.start;
  
   var ajaxurl = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
+  ajaxurl = queryObject.url;
   console.log(ajaxurl);
   http.get( ajaxurl, function(innerRes){
   	var chunkdata = '';
