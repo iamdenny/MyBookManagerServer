@@ -35,7 +35,7 @@ http.createServer(function (req, res) {
   console.log('start');
   
   http.get( 'http://openapi.naver.com/search', function(data){
-  	res.end(data);
+  	res.end('end');
   	console.log(res);
   }).on('error', function(e){
   	console.log('error : ' + e.message);
