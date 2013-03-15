@@ -39,7 +39,7 @@ http.createServer(function (req, res) {
   //res.end('Hello World\n');
   //console.log('start');
   var queryObject = url.parse(req.url,true).query;
-  //console.log(queryObject);
+  console.log(queryObject);
   //sQuery = queryObject.query;
   //nDisplay = queryObject.display;
   //nStart = queryObject.start;
