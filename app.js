@@ -37,9 +37,12 @@ http.createServer(function (req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin' : '*'});
   //res.end('Hello World\n');
-  console.log('start');
+  //console.log('start');
   var queryObject = url.parse(req.url,true).query;
-  console.log(queryObject);
+  //console.log(queryObject);
+  sQuery = queryObject.query;
+  nDisplay = queryObject.display;
+  nStart = queryObject.start;
  
   var ajaxurl = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
   console.log(ajaxurl);
@@ -49,7 +52,8 @@ http.createServer(function (req, res) {
   		console.log(chunk.length);
 	  	chunkdata += chunk
 	}).on('end', function(){
-	  	res.end(chunkdata);
+		var sResult = queryObject._callback + '(' + chunkdata + ')';
+	  	res.end(sResult);
 	});
   }).on('error', function(e){
   	console.log('error : ' + e.message);
