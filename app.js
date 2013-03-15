@@ -32,7 +32,7 @@ var nDisplay = 20;
 var nStart = 1;
 
 var http = require('http');
-var url = require('url');
+var url = require('querystring');
 http.createServer(function (req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin' : '*'});
