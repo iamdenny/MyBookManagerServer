@@ -39,11 +39,16 @@ http.createServer(function (req, res) {
  
   var url = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
   console.log(url);
-  http.get( url, function(data){
-  	res.end('end');
-  	console.log(res);
+  http.get( url, function(innerRes){
+  	var chunkdata = '';
+  	innerRes.on('data', function(chunk){
+  		console.log(chunk.length);
+	  	chunkdata += chunk
+	}).on('end', function(){
+	  	res.end(chunkdata);
+	});
   }).on('error', function(e){
   	console.log('error : ' + e.message);
-  });
+  })
 }).listen(2046, 'mybookmanagerserver.iamdenny.com');
 console.log('Server running at http://mybookmanagerserver.iamdenny.com:2046');
