@@ -55,6 +55,7 @@ http.createServer(function (req, res) {
 	}).on('end', function(){
 		var sResult = queryObject._callback + "('" + chunkdata + "')";
 	  	res.write(sResult);
+	  	res.end();
 	  	console.log('done');
 	});
   }).on('error', function(e){
