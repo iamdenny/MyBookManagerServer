@@ -38,6 +38,7 @@ http.createServer(function (req, res) {
   console.log('start');
  
   var url = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
+  console.log(url);
   http.get( url, function(data){
   	res.end('end');
   	console.log(res);
