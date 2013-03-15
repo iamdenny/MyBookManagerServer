@@ -26,7 +26,7 @@ var Book = io
 	});
 
 */
-var naverkey = '';
+var naverkey = 'de5ca00aaa40ab254ea5dec2c93247fd';
 var sQuery = 'node';
 var nDisplay = 20;
 var nStart = 1;
@@ -36,8 +36,9 @@ http.createServer(function (req, res) {
   res.writeHead(200, {'Content-Type': 'text/plain'});
   //res.end('Hello World\n');
   console.log('start');
-  
-  http.get( 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book', function(data){
+ 
+  var url = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
+  http.get( url, function(data){
   	res.end('end');
   	console.log(res);
   }).on('error', function(e){
