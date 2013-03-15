@@ -32,7 +32,7 @@ var nDisplay = 20;
 var nStart = 1;
 
 var http = require('http');
-var url = require('querystring');
+var url = require('url');
 http.createServer(function (req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/plain', 'Access-Control-Allow-Origin' : '*'});
@@ -41,9 +41,9 @@ http.createServer(function (req, res) {
   var queryObject = url.parse(req.url,true).query;
   console.log(queryObject);
  
-  var url = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
-  console.log(url);
-  http.get( url, function(innerRes){
+  var ajaxurl = 'http://openapi.naver.com/search?key='+naverkey+'&query='+sQuery+'&display='+nDisplay+'&start='+nStart+'&target=book';
+  console.log(ajaxurl);
+  http.get( ajaxurl, function(innerRes){
   	var chunkdata = '';
   	innerRes.on('data', function(chunk){
   		console.log(chunk.length);
