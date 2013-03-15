@@ -51,10 +51,11 @@ http.createServer(function (req, res) {
   	var chunkdata = '';
   	innerRes.on('data', function(chunk){
   		console.log(chunk.length);
-	  	chunkdata += chunk
+	  	chunkdata += chunk;
 	}).on('end', function(){
 		var sResult = queryObject._callback + "('" + chunkdata + "')";
-	  	res.end(sResult);
+	  	res.write(sResult);
+	  	console.log('done');
 	});
   }).on('error', function(e){
   	console.log('error : ' + e.message);
